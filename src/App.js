@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "@mui/material";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CategoryPage from "./pages/categoryPage";
+import MainPage from "./pages/mainPage";
+import store from "./redux/store";
+import MainThemeProvider from "./ThemeProvider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainThemeProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </MainThemeProvider>
   );
 }
 
