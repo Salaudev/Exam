@@ -12,8 +12,6 @@ const instanceAxios = axios.create({
 
 instanceAxios.defaults.headers.common["Authorization"] = "AUTH_TOKEN";
 
-const API_KEY = "0nG5do2caU59G7F2PT1eRQD0RAsaX5Du";
-
 console.log(instanceAxios.defaults.headers);
 
 export const getCategories = async () => {

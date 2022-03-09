@@ -1,9 +1,7 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { GiWhiteBook } from "react-icons/gi";
-import React, { useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { getDataByCategoryName } from "../../axios";
-import { setBook } from "../../redux/actions";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CategoryBox({ obj }) {
   const navigate = useNavigate();

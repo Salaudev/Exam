@@ -1,15 +1,7 @@
-import {
-  Box,
-  Container,
-  Divider,
-  IconButton,
-  InputBase,
-  Paper,
-} from "@mui/material";
+import { Box, Container, IconButton, InputBase } from "@mui/material";
 import React from "react";
 import { MyHeader } from "./HeaderWrapper";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
 
 export default function Header() {
   return (

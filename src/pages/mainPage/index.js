@@ -67,7 +67,8 @@ export default function MainPage() {
           }}
         >
           <Typography className="text-slate-400 text-base">
-            Showing 1-{presentBooks.length} of {currentBooks.length} Shops
+            Showing {(currentPage - 1) * booksPerPage}-
+            {currentPage * booksPerPage} of {currentBooks.length} Shops
           </Typography>
           <Pagination
             onChange={(e, page) => setCurrentPage(page)}
