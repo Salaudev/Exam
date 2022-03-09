@@ -19,6 +19,9 @@ export default function MainPage() {
     setBooks();
   }, []);
   const { books, loading, error } = useSelector((state) => state.books);
+  useEffect(() => {
+    setCurrentBooks(books);
+  }, [books]);
 
   console.log(books, "  books");
   console.log(loading, "  loading");
