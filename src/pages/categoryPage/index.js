@@ -1,4 +1,4 @@
-import { Box, Grid, Skeleton } from "@mui/material";
+import { Box, Grid, Skeleton, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Header from "../../Components/Header";
@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import { setBook } from "../../redux/actions";
 import BookCard from "../../Components/BookCard";
+import MoreModal from "../../Components/Modal";
 
 export default function CategoryPage() {
   const { book, loading, error } = useSelector((state) => state.book);
@@ -26,7 +27,10 @@ export default function CategoryPage() {
     <Box>
       <Header />
       <Section />
-      <Grid container spacing={2} py={5}>
+      <Typography variant="h4" color="text.secondary" textAlign="center" py={3}>
+        {params.category}
+      </Typography>
+      <Grid container spacing={2}>
         {book?.results?.books.map((item) => {
           return (
             <Grid item xs={12} sm={6} md={4} xl={3}>

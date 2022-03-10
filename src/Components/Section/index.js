@@ -11,8 +11,9 @@ export default function Section() {
         alignItems: "center",
         minHeight: "90vh",
         objectFit: "cover",
+        backgroundSize: "cover",
         color: "white",
-        backgroundImage: `url(https://avatars.mds.yandex.net/i?id=d23802d1db9d40421e65ecebf7204979-4120924-images-thumbs&n=13)`,
+        backgroundImage: `url(/images/HomeBack.png)`,
       }}
     >
       <Typography

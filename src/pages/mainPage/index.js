@@ -42,45 +42,49 @@ export default function MainPage() {
     <Box>
       <Header />
       <Section />
-      <Container variant="section" sx={{ paddingTop: 4 }}>
-        <Typography
-          sx={{ textAlign: "center", fontSize: "30px", fontWeight: "bold" }}
-        >
-          Categories
-        </Typography>
-
-        <Grid container spacing={2} py={5}>
-          {presentBooks.map((book) => {
-            return (
-              <Grid item xs={12} sm={6} md={4} xl={3}>
-                {loading ? (
-                  <Skeleton width="100%" height={228} />
-                ) : (
-                  <CategoryBox obj={book} />
-                )}
-              </Grid>
-            );
-          })}
-        </Grid>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography className="text-slate-400 text-base">
-            Showing {(currentPage - 1) * booksPerPage}-
-            {currentPage * booksPerPage} of {currentBooks.length} Shops
+      {!error ? (
+        <Container variant="section" sx={{ paddingTop: 4 }}>
+          <Typography
+            sx={{ textAlign: "center", fontSize: "30px", fontWeight: "bold" }}
+          >
+            Categories
           </Typography>
-          <Pagination
-            onChange={(e, page) => setCurrentPage(page)}
-            variant="outlined"
-            count={pageNumbers}
-          />
-        </Box>
-        <Footer />
-      </Container>
+
+          <Grid container spacing={2} py={5}>
+            {presentBooks.map((book) => {
+              return (
+                <Grid item xs={12} sm={6} md={4} xl={3}>
+                  {loading ? (
+                    <Skeleton width="100%" height={228} />
+                  ) : (
+                    <CategoryBox obj={book} />
+                  )}
+                </Grid>
+              );
+            })}
+          </Grid>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Typography className="text-slate-400 text-base">
+              Showing {(currentPage - 1) * booksPerPage}-
+              {currentPage * booksPerPage} of {currentBooks.length} Shops
+            </Typography>
+            <Pagination
+              onChange={(e, page) => setCurrentPage(page)}
+              variant="outlined"
+              count={pageNumbers}
+            />
+          </Box>
+          <Footer />
+        </Container>
+      ) : (
+        <Typography>Something went wrong</Typography>
+      )}
     </Box>
   );
 }
