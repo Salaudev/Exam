@@ -12,9 +12,11 @@ export default function CategoryPage() {
   const { book, loading, error } = useSelector((state) => state.book);
 
   const params = useParams();
+
+  let title = params.category;
   useEffect(() => {
     setBook(params.category);
-  }, [params.category]);
+  }, [title]);
 
   console.log(params);
   console.log(loading);
@@ -26,7 +28,7 @@ export default function CategoryPage() {
       <Header />
       <Section />
       <Typography variant="h4" color="text.secondary" textAlign="center" py={3}>
-        {params.category}
+        {title.slice(0, 1).toUpperCase() + title.slice(1).toLowerCase()}
       </Typography>
       <Container>
         <Grid container spacing={2}>
