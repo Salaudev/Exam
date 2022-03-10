@@ -1,4 +1,4 @@
-import { Box, Grid, Skeleton, Typography } from "@mui/material";
+import { Box, Grid, Skeleton, Typography, Container } from "@mui/material";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Header from "../../Components/Header";
@@ -7,19 +7,17 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import { setBook } from "../../redux/actions";
 import BookCard from "../../Components/BookCard";
-import MoreModal from "../../Components/Modal";
 
 export default function CategoryPage() {
   const { book, loading, error } = useSelector((state) => state.book);
 
-  const navigate = useNavigate();
   const params = useParams();
-  const location = useLocation();
   useEffect(() => {
     setBook(params.category);
   }, [params.category]);
 
   console.log(params);
+  console.log(loading);
 
   console.log(book, "   boooooook");
 
@@ -30,19 +28,21 @@ export default function CategoryPage() {
       <Typography variant="h4" color="text.secondary" textAlign="center" py={3}>
         {params.category}
       </Typography>
-      <Grid container spacing={2}>
-        {book?.results?.books.map((item) => {
-          return (
-            <Grid item xs={12} sm={6} md={4} xl={3}>
-              {loading ? (
-                <Skeleton width="100%" height={250} />
-              ) : (
-                <BookCard obj={item} />
-              )}
-            </Grid>
-          );
-        })}
-      </Grid>
+      <Container>
+        <Grid container spacing={2}>
+          {book?.results?.books.map((item) => {
+            return (
+              <Grid item xs={12} sm={6} md={4} xl={3}>
+                {loading ? (
+                  <Skeleton width="100%" height={250} />
+                ) : (
+                  <BookCard obj={item} />
+                )}
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
 
       <Footer />
     </Box>
