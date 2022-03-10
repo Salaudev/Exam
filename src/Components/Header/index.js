@@ -12,10 +12,7 @@ export default function Header() {
     <MyHeader>
       <Container>
         <FlexBox>
-          <img
-            src="https://avatars.mds.yandex.net/i?id=2d25c02b2fce9f15fc7f5a77d2629833-5724346-images-thumbs&n=13"
-            width="150px"
-          />
+          <img src="/images/LogoBooks.png" width="150px" />
           <Box
             component="form"
             sx={{
