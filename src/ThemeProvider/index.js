@@ -7,6 +7,9 @@ const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 const customTheme = (mode) => {
   return createTheme({
+    typography: {
+      fontFamily: "Rozha One",
+    },
     palette: {
       mode,
       ...(mode === "light"
