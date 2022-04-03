@@ -18,11 +18,6 @@ export default function CategoryPage() {
     setBook(params.category);
   }, [title]);
 
-  console.log(params);
-  console.log(loading);
-
-  console.log(book, "   boooooook");
-
   return (
     <Box>
       <Header />
@@ -30,11 +25,11 @@ export default function CategoryPage() {
       <Typography variant="h4" color="text.secondary" textAlign="center" py={3}>
         {title.slice(0, 1).toUpperCase() + title.slice(1).toLowerCase()}
       </Typography>
-      <Container>
+      <Container maxWidth="xl">
         <Grid container spacing={2}>
           {book?.results?.books.map((item) => {
             return (
-              <Grid item xs={12} sm={6} md={4} xl={3}>
+              <Grid key={item.id} item xs={12} sm={6} md={4} xl={3}>
                 {loading ? (
                   <Skeleton width="100%" height={250} />
                 ) : (

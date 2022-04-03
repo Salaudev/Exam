@@ -5,4 +5,5 @@ export const FlexBox = styled("div")({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  flexWrap: "wrap",
 });

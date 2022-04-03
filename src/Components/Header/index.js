@@ -3,16 +3,16 @@ import React from "react";
 import { MyHeader } from "./HeaderWrapper";
 import { FlexBox } from "../FlexBox";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
   return (
     <MyHeader>
-      <Container>
+      <Container maxWidth="xl">
         <FlexBox>
-          <img src="/images/LogoBooks.png" width="150px" />
+          <Link to="/">
+            <img src="/images/LogoBooks.png" width="150px" />
+          </Link>
           <Box
             component="form"
             sx={{
@@ -31,7 +31,6 @@ export default function Header() {
               sx={{ ml: 1, flex: 1 }}
               placeholder="Search Google Maps"
               inputProps={{ "aria-label": "search google maps" }}
-              onChange={handleChange}
             />
             <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
               <SearchIcon />

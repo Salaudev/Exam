@@ -19,8 +19,7 @@ export default function Section() {
       <Typography
         component="h1"
         sx={{
-          fontSize: "70px",
-          maxWidth: "70%",
+          fontSize: { xs: "30px", md: "50px", lg: "70px" },
           textAlign: "center",
         }}
       >

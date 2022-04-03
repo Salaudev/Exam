@@ -17,7 +17,7 @@ export default function BookCard({ obj }) {
   // const handleOpen = () => setOpen(true);
   return (
     <>
-      <Card sx={{ maxWidth: 345, minHeight: 400 }}>
+      <Card sx={{ width: "100%", minHeight: 500 }}>
         <CardMedia
           component="img"
           height="300"
